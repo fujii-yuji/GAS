@@ -24,6 +24,7 @@ function mergeCal(outCal, inCal_id, date_start, date_end) {
     var inCal = CalendarApp.getCalendarById(inCal_id);
     var new_Future_Ev = inCal.getEvents(date_start,date_end);
     for(var i = 0; i < new_Future_Ev.length;i++){
+	Utilities.sleep(1000);
 	if(new_Future_Ev[i].isAllDayEvent()){
 	    outCal.createAllDayEvent("<" + inCal.getName() + ">" + new_Future_Ev[i].getTitle(),
 	    new_Future_Ev[i].getStartTime(),
